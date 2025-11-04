@@ -1,0 +1,44 @@
+App\Entity\Location:
+    properties:
+        city:
+            - NotBlank:
+                  message: 'City name can not be empty.'
+                  groups: [create, edit]
+
+        country:
+            - NotBlank:
+                  message: 'Pick a country.'
+                  groups: [create, edit]
+
+        latitude:
+            - NotNull:
+                  message: 'Type in latitude.'
+                  groups: [create, edit]
+            - Range:
+                  min: -90
+                  max: 90
+                  notInRangeMessage: 'Latitude must be between -90 and 90.'
+                  groups: [create, edit]
+
+        longitude:
+            - NotNull:
+                  message: 'Type in longitude.'
+                  groups: [create, edit]
+            - Range:
+                  min: -180
+                  max: 180
+                  notInRangeMessage: 'Longitude must be between -180 and 180.'
+                  groups: [create, edit]
+
+App\Entity\Measurement:
+    properties:
+        celsius:
+            - NotNull:
+                  message: 'Type in temperature in Celsius.'
+                  groups: [create, edit]
+
+            - Range:
+                  min: -89.2
+                  max: 56.7
+                  notInRangeMessage: 'Temperature must be between -89.2 and 56.7 Celsius degrees.'
+                  groups: [create, edit]
